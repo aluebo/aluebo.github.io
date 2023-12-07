@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To you 小熙</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background-color: rgb(252, 166, 235);
+      overflow: hidden;
+    }
+
+    #heart {
+      color: rgb(255, 105, 225);
+      font-size: 300px;
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .txt {
+        color:black;
+        text-align: center;
+    }
+    .falling-heart {
+      position: absolute;
+      animation: fall 5s linear infinite;
+      font-size: 30px;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100vh);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="heart">❤</div>
+  <h3 class="txt">嘿嘿就知道你喜欢这个!</h3>
+  <h3 class="txt">专门给你整了一个~</h3>
+<h3 class="txt">我会一直一直喜欢和陪着你的，小熙</h3>
+  <script>
+    const heart = document.getElementById('heart');
+    function toggleHeart() {
+        heart.style.transform = heart.style.transform === 'scale(1)' ? 'scale(1.2)' : 'scale(1)';
+    }
+    setInterval(toggleHeart, 500);
+   function createFallingHeart() {
+      const fallingHeart = document.createElement('div');
+      fallingHeart.className = 'falling-heart';
+      fallingHeart.innerHTML = '💖';
+      document.body.appendChild(fallingHeart);
+
+      const randomX = Math.random() * window.innerWidth;
+      fallingHeart.style.left = `${randomX}px`;
+    }
+
+    setInterval(createFallingHeart, 300);
+  </script>
+
+</body>
+</html>
